@@ -1,7 +1,7 @@
 SELECT * FROM vw_personal.IBM_employee_data;
 DESCRIBE vw_personal.IBM_employee_data;
 
--- Assess # employees per role and mean monthly income for each role
+-- Assess # employees per role and mean monthly income for each role.
 SELECT 
 JobRole,
 COUNT(*) role_count,
@@ -10,7 +10,7 @@ FROM vw_personal.IBM_employee_data
 GROUP BY JobRole
 ORDER BY avg_monthly_income DESC;
 
--- View mean job satisfaction, job involvement, work life balance for each role
+-- View mean job satisfaction, job involvement, work life balance for each role.
 SELECT 
 JobRole,
 COUNT(*) role_count,
