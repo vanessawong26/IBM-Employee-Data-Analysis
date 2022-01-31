@@ -1,0 +1,10 @@
+JobRole,role_count,avg_job_satis,avg_job_involve,avg_work_life
+"Laboratory Technician",71,2.3662,2.7606,2.7465
+"Manufacturing Director",38,2.6053,2.6316,2.6842
+"Research Director",18,2.6111,2.5556,3.0000
+"Sales Representative",25,2.6800,2.6800,2.7600
+"Healthcare Representative",43,2.6977,2.8605,2.8140
+"Sales Executive",94,2.7553,2.5957,2.7553
+"Research Scientist",78,2.7564,2.7821,2.6410
+"Human Resources",22,2.8182,2.5455,2.9545
+Manager,23,3.0000,2.9565,2.7826
