@@ -1,45 +1,45 @@
 # IBM Employee Dataset
 ## Here I use MySQL and R to analyze and create visualizations for an IBM Employee dataset from [Kaggle](https://www.kaggle.com/rohitsahoo/employee).
-###### About the dataset (info taken from Kaggle)
+**###### About the dataset (info taken from Kaggle)**
 
-###### Education
+**###### Education**
 - ###### 1 = 'Below College'
 - ###### 2 = 'College'
 - ###### 3 = 'Bachelor'
 - ###### 4 = 'Master'
 - ###### 5 = 'Doctor'
 
-###### EnvironmentSatisfaction
+**###### EnvironmentSatisfaction**
 - ###### 1 = 'Low'
 - ###### 2 = 'Medium'
 - ###### 3 = 'High'
 - ###### 4 = 'Very High'
 
-###### JobInvolvement
+**###### JobInvolvement**
 - ###### 1 = 'Low'
 - ###### 2 = 'Medium'
 - ###### 3 = 'High'
 - ###### 4 = 'Very High'
 
-###### JobSatisfaction
+**###### JobSatisfaction**
 - ###### 1 = 'Low'
 - ###### 2 = 'Medium'
 - ###### 3 = 'High'
 - ###### 4 = 'Very High'
 
-###### PerformanceRating
+**###### PerformanceRating**
 - ###### 1 = 'Low'
 - ###### 2 = 'Good'
 - ###### 3 = 'Excellent'
 - ###### 4 = 'Outstanding'
 
-###### RelationshipSatisfaction
+**###### RelationshipSatisfaction**
 - ###### 1 = 'Low'
 - ###### 2 = 'Medium'
 - ###### 3 = 'High'
 - ###### 4 = 'Very High'
 
-###### WorkLifeBalance
+**###### WorkLifeBalance**
 - ###### 1 = 'Bad'
 - ###### 2 = 'Good'
 - ###### 3 = 'Better'
