@@ -1,5 +1,4 @@
-# IBM Employee Dataset
-## Here I use MySQL and R to analyze and create visualizations for an IBM Employee dataset from [Kaggle](https://www.kaggle.com/rohitsahoo/employee).
+# IBM Employee Dataset from [Kaggle](https://www.kaggle.com/rohitsahoo/employee)
 
 ###### About the dataset:
 
