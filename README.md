@@ -1,6 +1,6 @@
 # IBM Employee Dataset from [Kaggle](https://www.kaggle.com/rohitsahoo/employee)
 
-###### Workflow:
+### Workflow:
 ###### 1. Import [dataset](https://github.com/vanessawong26/IBM-Employee-Data-Analysis/blob/main/IBM_employee_data.csv) from Kaggle into MySQL
 ###### 2. Perform [exploratory analysis](https://github.com/vanessawong26/IBM-Employee-Data-Analysis/blob/main/IBMexploratory.sql) of dataset using MySQL 
 ###### 3. Create [tables](https://github.com/vanessawong26/IBM-Employee-Data-Analysis/blob/main/Tables.sql) in MySQL based on initial exploratory analysis for easy access
