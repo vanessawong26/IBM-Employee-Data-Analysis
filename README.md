@@ -1,6 +1,7 @@
 # IBM Employee Dataset from [Kaggle](https://www.kaggle.com/rohitsahoo/employee)
 
 ###### Workflow:
+###### 1. Perform [exploratory analysis](https://github.com/vanessawong26/IBM-Employee-Data-Analysis/blob/main/IBMexploratory.sql) of dataset using MySQL 
 ###### About the dataset:
 
 ###### Education
