@@ -2,12 +2,13 @@
 title: "IBM Employee Dataset Findings and Summary"
 author: "Vanessa Wong"
 date: "2/1/2022"
-output: html_document
+output:
+  pdf_document:
+    toc: TRUE
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-
+knitr::opts_chunk$set(fig.pos = "H", out.extra = "", echo = TRUE)
 library("ggplot2")
 library("tidyr")
 library("DBI")
@@ -17,12 +18,10 @@ gender_income <- read.csv("Gender_vs_Income.csv")
 jrole_jrating <- read.csv("JobRole_vs_JobRatings.csv")
 jrole_income <- read.csv("JobRole_vs_Income.csv")
 ```
-
+\newpage
 ## Question #1: Which job role has the highest average monthly income?
-#### - On average, Managers earn the highest monthly income. 
-#### - As shown by the shading legend, the Sales Executive position is the most abundant job role at IBM (94 employees) while the Research Director, Manager, and Human Resources positions are the least abundant job roles at IBM (only ~20 employees in each role).
-
-```{r}
+#### - On average, Managers earn the highest monthly income. As shown by the shading legend, the Sales Executive position is the most abundant job role at IBM (94 employees) while the Research Director, Manager, and Human Resources positions are the least abundant job roles at IBM (only ~20 employees in each role).
+```{r, echo=FALSE, fig.align='center'}
 ggplot(jrole_income, aes(y=avg_monthly_income, x=JobRole, fill=role_count)) +
   geom_bar(position="dodge", stat="identity") +
   ggtitle("Income by Job Role") +
@@ -32,12 +31,10 @@ ggplot(jrole_income, aes(y=avg_monthly_income, x=JobRole, fill=role_count)) +
   theme(axis.text.x=element_text(angle=45, vjust=1,hjust=1))
 
 ```
-
+\newpage
 ## Question #2: How does average monthly income vary between males and females?
-#### - For 6 out of 9 job roles, females have a higher average monthly income than their male counterparts; the exceptions to this pattern are the Manager, Research Director, and Sales Executive roles.
-#### - It should be noted that there are proportionally more males than females in almost every job role (except for Manufacturing Director), as shown in white text.
-
-```{r}
+#### - For 6 out of 9 job roles, females have a higher average monthly income than their male counterparts; the exceptions to this pattern are the Manager, Research Director, and Sales Executive roles. It should be noted that there are proportionally more males than females in almost every job role (except for Manufacturing Director), as shown in white text.
+```{r, echo=FALSE, fig.align='center'}
 ggplot(gender_income, aes(fill=Gender, y=avg_monthly_income, x=JobRole)) +
   geom_bar(position="dodge", stat="identity") +
   ggtitle("Gender Breakdown of Income by Job Role") +
@@ -46,12 +43,10 @@ ggplot(gender_income, aes(fill=Gender, y=avg_monthly_income, x=JobRole)) +
   coord_flip() +
   geom_text(aes(label=role_count), color="white", size=3, hjust=1.5, position=position_dodge(0.9))
 ```
-
+\newpage
 ## Question #3: How do employee ratings of their work experiences vary across job roles?
-#### - Overall, there are marginal differences in ratings of job involvement, job satisfaction, and work life balance (on a 4 point scale). 
-#### - Notably, the highest-paid job role of Manager reports the highest job satisfaction, on average.
-
-```{r}
+#### - Overall, there are marginal differences in ratings of job involvement, job satisfaction, and work life balance (on a 4 point scale). Notably, the highest-paid job role of Manager reports the highest job satisfaction, on average.
+```{r, echo=FALSE}
 ratingslong <- gather(jrole_jrating, key="measure", value="value", c("avg_job_satis", "avg_job_involve", "avg_work_life"))
 labels <- list(
   "avg_work_life" = "Work Life Balance",
@@ -70,12 +65,11 @@ ggplot(ratingslong, aes(y=value, x=JobRole)) +
   theme(axis.text.x=element_text(angle=45, vjust=1,hjust=1))
 
 ```
+\newpage
 
 ## Question #4: What is the relationship between performance ratings and salary hike percentages at IBM?
-
-#### - Linear Model:  $\hat{y}$ = -9.4979 + 7.8558x
-#### - Every 1 point increase in performance rating is associated with a 7.8558% salary hike.
-```{r, echo=TRUE}
+#### - Linear Model:  $\hat{y}$ = -9.4979 + 7.8558x, i.e. every 1 point increase in performance rating is associated with a 7.8558% salary hike.
+```{r, echo=FALSE}
 ### Linear Model calculation:
 y_avg <- mean(employee$PercentSalaryHike)
 x_avg <- mean(employee$PerformanceRating)
@@ -94,27 +88,26 @@ alpha <- y_avg - (beta*x_avg) ## alpha = -9.4979
 mod <- lm(employee$PercentSalaryHike ~ employee$PerformanceRating)
 mod ## coefficients match ones from calculation
 ```
-#### - Scatterplot with regression line
-```{r}
+
+#### - Scatterplot with regression line:
+```{r, fig.align='center', echo=FALSE}
 plot(employee$PerformanceRating, employee$PercentSalaryHike,
      xlab="Performance Rating",
      ylab="Percent Salary Hike")
 abline(a=-9.4979, b=7.8558, col="red")
 ```
 
-
 #### - Correlation coefficient (r) = 0.78, indicating a strong, positive, and linear relationship between performance rating and salary hike percentage.
-```{r}
+```{r, echo=FALSE}
 ## r value:
 cor(employee$PercentSalaryHike, employee$PerformanceRating)
 ```
 
 
+\newpage
 ## Question #5: What is the relationship between age and monthly income?
-
-#### - Linear model: $\hat{y}$ = -3246.812 + 257.861x
-#### - Every 1 year increase in age is associated with a $257.86 increase in monthly income.
-```{r}
+#### - Linear model: $\hat{y}$ = -3246.812 + 257.861x, i.e. every 1 year increase in age is associated with a $257.86 increase in monthly income.
+```{r, echo=FALSE}
 ## Linear Model calculation:
 y_avg2 <- mean(employee$MonthlyIncome)
 x_avg2 <- mean(employee$Age)
@@ -133,16 +126,19 @@ mod2 <- lm(employee$MonthlyIncome ~ employee$Age)
 mod2 #coefficients match those from calculation
 ```
 
-#### - Scatterplot with regression line
-```{r}
+
+#### - Scatterplot with regression line:
+```{r, fig.align='center', echo=FALSE}
 plot(employee$Age, employee$MonthlyIncome,
      xlab="Age",
      ylab="Monthly Income")
 abline(a=-3246.812, b=257.861, col="red")
 ```
 
+
+
 #### - Correlation coefficient (r) = 0.50, indicating a moderate, positive relationship between age and monthly income.
-```{r}
+```{r, echo=FALSE}
 cor(employee$Age, employee$MonthlyIncome)
 ```
 
