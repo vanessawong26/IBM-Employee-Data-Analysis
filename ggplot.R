@@ -3,7 +3,6 @@ setwd("~/Documents/GitHub/MySQL")
 gender_income <- read.csv("Gender_vs_Income.csv")
 jrole_jrating <- read.csv("JobRole_vs_JobRatings.csv")
 jrole_income <- read.csv("JobRole_vs_Income.csv")
-
 ## install/load ggplot2
 install.packages("ggplot2")
 library("ggplot2")
